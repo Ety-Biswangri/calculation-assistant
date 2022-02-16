@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 /* common part style */
 .body{
     margin: 0px;
     padding: 0px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* heading style */
@@ -19,7 +19,7 @@ h1{
 
 /* section right form style */
 .form{
-    background-color: #e7dede5e;
+    background-color: #F8F8F8;
     height: 815px;
     width: 542px;
     padding: 25px;
@@ -30,4 +30,22 @@ label {
     width: 80px;
     font-size: 18px;
     font-weight: 600;
+}
+
+.inputs{
+    border: none;
+    background-color: #DCDCDC;;
+    border-radius: 2px;
+    width: 200px;
+}
+
+button{
+    background-color: #5a60cfbe;
+    color: white;
+    font-weight: 600;
+    width: 150px;
+    height: 45px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
 }
