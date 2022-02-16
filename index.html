@@ -40,7 +40,8 @@
                                 <h4 class="text-center my-4">Income</h4>
                                 <div class="d-flex justify-content-center align-items-center">
                                     <label>Income:</label>
-                                    <input class="form-control inputs" type="text" value="10000" />
+                                    <input id="income-amount" class="form-control inputs" type="text"
+                                        placeholder="10000" />
                                 </div>
                             </div>
 
@@ -49,35 +50,39 @@
                                 <h4 class="text-center mb-3">Expenses</h4>
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                                     <label>Food:</label>
-                                    <input class="form-control inputs" type="text" value="3000" />
+                                    <input id="food-expense" class="form-control inputs" type="text"
+                                        placeholder="3000" />
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                                     <label>Rent:</label>
-                                    <input class="form-control inputs" type="text" value="2000" />
+                                    <input id="rent-expense" class="form-control inputs" type="text"
+                                        placeholder="2000" />
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center mb-3">
                                     <label>Clothes:</label>
-                                    <input class="form-control inputs" type="text" value="500" />
+                                    <input id="clothes-expense" class="form-control inputs" type="text"
+                                        placeholder="500" />
                                 </div>
                                 <div class="d-flex justify-content-center my-4">
-                                    <button class="fs-5" type="button">Calculate</button>
+                                    <button id="calculate-button" class="fs-5" type="button">Calculate</button>
                                 </div>
                             </div>
                             <!--total expenses -->
-                            <h4 class="text-center mb-4">Total Expenses: <span>5500</span> </h4>
+                            <h4 class="text-center mb-4">Total Expenses: <span id="total-expenses">5500</span> </h4>
                             <!-- balance -->
-                            <h4 class="text-center mb-5">Balance: <span>4500</span> </h4>
+                            <h4 class="text-center mb-5">Balance: <span id="balace-display">4500</span> </h4>
 
                             <!-- savings -->
                             <div class="d-flex justify-content-center align-items-center mb-4">
                                 <label style="width: 60px;">Save:</label>
                                 <input style="width: 85px; text-align: center;" class="form-control inputs" type="text"
-                                    value="20" />
+                                    placeholder="20" />
                                 <span class="mx-3">%</span>
-                                <button style="height: 40px;" class="w-25 fs-5" type="button">Save</button>
+                                <button id="save-button" style="height: 40px;" class="w-25 fs-5"
+                                    type="button">Save</button>
                             </div>
                             <!--Saving Amounts -->
-                            <h4 class="text-center mb-4">Saving Amounts: <span>2000</span> </h4>
+                            <h4 class="text-center mb-4">Saving Amounts: <span id="saving-amount">2000</span> </h4>
                             <!-- Remaining Balance -->
                             <h4 class="text-center mb-4">Remaining Balance: <span>2500</span> </h4>
 
