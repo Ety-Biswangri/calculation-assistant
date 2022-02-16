@@ -1,23 +1,22 @@
+function calculateExpenses(expenseId) {
+    // food expenses
+    const expenseInput = document.getElementById(expenseId);
+    const expense = parseFloat(expenseInput.value);
+    expenseInput.value = '';
+    return expense;
+}
+
+
 document.getElementById('calculate-button').addEventListener('click', function () {
     // income
-    const incomeInput = document.getElementById('income-amount');
-    const income = parseFloat(incomeInput.value);
-    incomeInput.value = '';
+    const income = calculateExpenses('income-amount');
 
-    // food expenses
-    const foodExpenseInput = document.getElementById('food-expense');
-    const foodExpense = parseFloat(foodExpenseInput.value);
-    foodExpenseInput.value = '';
-
+    // food
+    const foodExpense = calculateExpenses('food-expense');
     // rent expenses
-    const rentExpenseInput = document.getElementById('rent-expense');
-    const rentExpense = parseFloat(rentExpenseInput.value);
-    rentExpenseInput.value = '';
-
+    const rentExpense = calculateExpenses('rent-expense');
     // clothes expenses
-    const clothesExpenseInput = document.getElementById('clothes-expense');
-    const clothesExpense = parseFloat(clothesExpenseInput.value);
-    clothesExpenseInput.value = '';
+    const clothesExpense = calculateExpenses('clothes-expense');
 
     // total expenses
     const totalExpenses = foodExpense + rentExpense + clothesExpense;
@@ -31,5 +30,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
 });
 
 document.getElementById('save-button').addEventListener('click', function () {
-    console.log('loly')
+    const savingAmountsInput = document.getElementById('saving-amount');
+    const savingAmounts = parseFloat(savingAmountsInput.value);
+    savingAmountsInput.value = '';
 })
