@@ -1,19 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+
 /* common part style */
 .body{
     margin: 0px;
     padding: 0px;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* heading style */
 h1{
     color: #8D3DAF;
 }
 
+/* section left image style */
 .image-height{
     height: 815px;
 }
 
+/* section right form style */
 .form{
-    background-color: #e7dede;
+    background-color: #e7dede5e;
     height: 815px;
     width: 542px;
+    padding: 25px;
+}
+
+label {
+    display: inline-block;
+    width: 80px;
+    font-size: 18px;
+    font-weight: 600;
 }
