@@ -8,6 +8,12 @@ h1{
     color: #8D3DAF;
 }
 
+.image-height{
+    height: 815px;
+}
+
 .form{
-    background-color: #838181;
+    background-color: #e7dede;
+    height: 815px;
+    width: 542px;
 }
