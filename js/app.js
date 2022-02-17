@@ -18,15 +18,41 @@ document.getElementById('calculate-button').addEventListener('click', function (
     // clothes expenses
     const clothesExpense = calculateExpenses('clothes-expense');
 
-    // total expenses
-    const totalExpenses = foodExpense + rentExpense + clothesExpense;
-    const totalExpensesDisplay = document.getElementById('total-expenses');
-    totalExpensesDisplay.innerText = totalExpenses;
+    if (income > 0 && foodExpense > 0 && rentExpense > 0 && clothesExpense > 0) {
+        const totalExpenses = foodExpense + rentExpense + clothesExpense;
+        const totalExpensesDisplay = document.getElementById('total-expenses');
+        totalExpensesDisplay.innerText = totalExpenses;
+        // balance
+        const balance = income - totalExpenses;
+        const balanceDisplay = document.getElementById('balace-display');
+        balanceDisplay.innerText = balance;
 
-    // balance
-    const balance = income - totalExpenses;
-    const balanceDisplay = document.getElementById('balace-display');
-    balanceDisplay.innerText = balance;
+
+        /* if (totalExpenses < income) {
+            // total expenses
+
+        }
+        else if (totalExpenses > income) {
+            const notifyMessage = document.getElementById('notification');
+            notifyMessage.innerText = 'Your Income is not enough';
+        } */
+
+        const notifyMessage = document.getElementById('notification');
+        notifyMessage.innerText = '';
+    }
+
+    else {
+        const totalExpensesDisplay = document.getElementById('total-expenses');
+        totalExpensesDisplay.innerText = 0;
+        const balanceDisplay = document.getElementById('balace-display');
+        balanceDisplay.innerText = 0;
+
+        const notifyMessage = document.getElementById('notification');
+        notifyMessage.innerText = 'Please give the correct input';
+    }
+
+
+
 });
 
 document.getElementById('save-button').addEventListener('click', function () {
