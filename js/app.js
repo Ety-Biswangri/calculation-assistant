@@ -1,54 +1,61 @@
 function getInputValue(inputId) {
-    // expenses
+    // inputValue
     const inputField = document.getElementById(inputId);
     const inputAmount = parseInt(inputField.value);
-    inputField.value = '';
+    inputField.value = 0;
     return inputAmount;
 }
 
-
 // calculate button handling
 document.getElementById('calculate-button').addEventListener('click', function () {
-    // income
+    // income, food, rent , clothes expenses
     const income = getInputValue('income-amount');
-    // food
     const foodExpense = getInputValue('food-expense');
-    // rent expenses
     const rentExpense = getInputValue('rent-expense');
-    // clothes expenses
     const clothesExpense = getInputValue('clothes-expense');
 
-    if (income >= 0 && foodExpense >= 0 && rentExpense >= 0 && clothesExpense >= 0) {
-        const totalExpenses = foodExpense + rentExpense + clothesExpense;
-        if (totalExpenses > income) {
+    if (isNaN(income) != true && isNaN(foodExpense) != true && isNaN(rentExpense) != true && isNaN(clothesExpense) != true) {
+
+        if (income >= 0 && foodExpense >= 0 && rentExpense >= 0 && clothesExpense >= 0) {
+            // total expense
+            const totalExpenses = foodExpense + rentExpense + clothesExpense;
+            if (totalExpenses > income) {
+                // error message
+                const notifyMessage = document.getElementById('notification');
+                const totalExpensesDisplay = document.getElementById('total-expenses');
+                totalExpensesDisplay.innerText = '0';
+                const balanceDisplay = document.getElementById('balace-display');
+                balanceDisplay.innerText = '0';
+                return notifyMessage.innerText = 'You have not enough income';
+            }
+            else {
+                const totalExpensesDisplay = document.getElementById('total-expenses');
+                totalExpensesDisplay.innerText = totalExpenses;
+                // balance
+                const balance = income - totalExpenses;
+                const balanceDisplay = document.getElementById('balace-display');
+                balanceDisplay.innerText = balance;
+            }
+            // error message
             const notifyMessage = document.getElementById('notification');
+            notifyMessage.innerText = '';
+        }
+
+        else {
             const totalExpensesDisplay = document.getElementById('total-expenses');
             totalExpensesDisplay.innerText = '0';
             const balanceDisplay = document.getElementById('balace-display');
             balanceDisplay.innerText = '0';
-            return notifyMessage.innerText = 'You have not enough income';
+            // error message
+            const notifyMessage = document.getElementById('notification');
+            notifyMessage.innerText = 'Please give positive numbers';
         }
-        else {
-            const totalExpensesDisplay = document.getElementById('total-expenses');
-            totalExpensesDisplay.innerText = totalExpenses;
-
-            // balance
-            const balance = income - totalExpenses;
-            const balanceDisplay = document.getElementById('balace-display');
-            balanceDisplay.innerText = balance;
-        }
-        // error message
-        const notifyMessage = document.getElementById('notification');
-        notifyMessage.innerText = '';
     }
+
     else {
-        const totalExpensesDisplay = document.getElementById('total-expenses');
-        totalExpensesDisplay.innerText = '0';
-        const balanceDisplay = document.getElementById('balace-display');
-        balanceDisplay.innerText = '0';
         // error message
         const notifyMessage = document.getElementById('notification');
-        notifyMessage.innerText = 'Please give correct inputs in all the input fields';
+        notifyMessage.innerText = 'Please give numbers in the input fields';
     }
 });
 
@@ -65,8 +72,14 @@ document.getElementById('save-button').addEventListener('click', function () {
     const foodExpense = getInputValue('food-expense');
     const rentExpense = getInputValue('rent-expense');
     const clothesExpense = getInputValue('clothes-expense');
+
     const totalExpenses = foodExpense + rentExpense + clothesExpense;
+    const totalExpensesDisplay = document.getElementById('total-expenses');
+    totalExpensesDisplay.innerText = totalExpenses;
+
     const balance = income - totalExpenses;
+    const balanceDisplay = document.getElementById('balace-display');
+    balanceDisplay.innerText = balance;
 
     const remainingBalanceCalculation = balance - savingAmountsCalculation;
     const remainingBalanceDisplay = document.getElementById('remaining-balance');
