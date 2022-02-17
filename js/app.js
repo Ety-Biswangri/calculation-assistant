@@ -53,6 +53,10 @@ document.getElementById('calculate-button').addEventListener('click', function (
     }
 
     else {
+        const totalExpensesDisplay = document.getElementById('total-expenses');
+        totalExpensesDisplay.innerText = '0';
+        const balanceDisplay = document.getElementById('balace-display');
+        balanceDisplay.innerText = '0';
         // error message
         const notifyMessage = document.getElementById('notification');
         notifyMessage.innerText = 'Please give numbers in the input fields';
