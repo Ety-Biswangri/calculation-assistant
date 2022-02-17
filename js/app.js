@@ -48,7 +48,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
         balanceDisplay.innerText = '0';
         // error message
         const notifyMessage = document.getElementById('notification');
-        notifyMessage.innerText = 'Please give all the correct input';
+        notifyMessage.innerText = 'Please give correct inputs in all the input fields';
     }
 });
 
