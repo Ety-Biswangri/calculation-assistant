@@ -26,7 +26,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
                 balanceDisplay.innerText = '0';
                 // error message
                 const notifyMessage = document.getElementById('notification');
-                return notifyMessage.innerText = 'You have not enough income';
+                return notifyMessage.innerText = 'Opps! Not have enough income to expense';
             }
             else {
                 const totalExpensesDisplay = document.getElementById('total-expenses');
@@ -48,7 +48,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
             balanceDisplay.innerText = '0';
             // error message
             const notifyMessage = document.getElementById('notification');
-            notifyMessage.innerText = 'Please give positive numbers';
+            notifyMessage.innerText = 'Opps! Give only positive numbers';
         }
     }
 
@@ -59,7 +59,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
         balanceDisplay.innerText = '0';
         // error message
         const notifyMessage = document.getElementById('notification');
-        notifyMessage.innerText = 'Please give numbers in the input fields';
+        notifyMessage.innerText = 'Opps! Give numbers only';
     }
 });
 
@@ -68,7 +68,7 @@ document.getElementById('save-button').addEventListener('click', function () {
     // saving amounts
     const savingAmountsPercentage = getInputValue('saving-amount-percentage');
     const income = getInputValue('income-amount');
-    const savingAmountsCalculation = (savingAmountsPercentage * income) / 100;
+    const savingAmountsCalculation = parseInt((savingAmountsPercentage * income) / 100);
     const savingAmountsDisplay = document.getElementById('saving-amount');
     savingAmountsDisplay.innerText = savingAmountsCalculation;
 
@@ -88,7 +88,7 @@ document.getElementById('save-button').addEventListener('click', function () {
     if (savingAmountsCalculation > balance) {
         // error message
         const notifyMessage = document.getElementById('notification');
-        return notifyMessage.innerText = 'You have not enough Balance for savings';
+        return notifyMessage.innerText = 'Opps! Not have enough Balance for savings';
     }
     else {
         // remaining balance
