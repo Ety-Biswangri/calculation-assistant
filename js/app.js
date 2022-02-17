@@ -2,7 +2,7 @@ function getInputValue(inputId) {
     // inputValue
     const inputField = document.getElementById(inputId);
     const inputAmount = parseInt(inputField.value);
-    inputField.value = 0;
+    // inputField.value = 0;
     return inputAmount;
 }
 
@@ -20,12 +20,12 @@ document.getElementById('calculate-button').addEventListener('click', function (
             // total expense
             const totalExpenses = foodExpense + rentExpense + clothesExpense;
             if (totalExpenses > income) {
+                const totalExpensesDisplay = document.getElementById('total-expenses');
+                totalExpensesDisplay.innerText = totalExpenses;
+                const balanceDisplay = document.getElementById('balance-display');
+                balanceDisplay.innerText = '0';
                 // error message
                 const notifyMessage = document.getElementById('notification');
-                const totalExpensesDisplay = document.getElementById('total-expenses');
-                totalExpensesDisplay.innerText = '0';
-                const balanceDisplay = document.getElementById('balace-display');
-                balanceDisplay.innerText = '0';
                 return notifyMessage.innerText = 'You have not enough income';
             }
             else {
@@ -33,7 +33,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
                 totalExpensesDisplay.innerText = totalExpenses;
                 // balance
                 const balance = income - totalExpenses;
-                const balanceDisplay = document.getElementById('balace-display');
+                const balanceDisplay = document.getElementById('balance-display');
                 balanceDisplay.innerText = balance;
             }
             // error message
@@ -44,7 +44,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
         else {
             const totalExpensesDisplay = document.getElementById('total-expenses');
             totalExpensesDisplay.innerText = '0';
-            const balanceDisplay = document.getElementById('balace-display');
+            const balanceDisplay = document.getElementById('balance-display');
             balanceDisplay.innerText = '0';
             // error message
             const notifyMessage = document.getElementById('notification');
@@ -55,7 +55,7 @@ document.getElementById('calculate-button').addEventListener('click', function (
     else {
         const totalExpensesDisplay = document.getElementById('total-expenses');
         totalExpensesDisplay.innerText = '0';
-        const balanceDisplay = document.getElementById('balace-display');
+        const balanceDisplay = document.getElementById('balance-display');
         balanceDisplay.innerText = '0';
         // error message
         const notifyMessage = document.getElementById('notification');
@@ -72,7 +72,7 @@ document.getElementById('save-button').addEventListener('click', function () {
     const savingAmountsDisplay = document.getElementById('saving-amount');
     savingAmountsDisplay.innerText = savingAmountsCalculation;
 
-    // remaining balance
+
     const foodExpense = getInputValue('food-expense');
     const rentExpense = getInputValue('rent-expense');
     const clothesExpense = getInputValue('clothes-expense');
@@ -82,10 +82,22 @@ document.getElementById('save-button').addEventListener('click', function () {
     totalExpensesDisplay.innerText = totalExpenses;
 
     const balance = income - totalExpenses;
-    const balanceDisplay = document.getElementById('balace-display');
+    const balanceDisplay = document.getElementById('balance-display');
     balanceDisplay.innerText = balance;
 
-    const remainingBalanceCalculation = balance - savingAmountsCalculation;
-    const remainingBalanceDisplay = document.getElementById('remaining-balance');
-    remainingBalanceDisplay.innerText = remainingBalanceCalculation;
+    if (savingAmountsCalculation > balance) {
+        // error message
+        const notifyMessage = document.getElementById('notification');
+        return notifyMessage.innerText = 'You have not enough Balance for savings';
+    }
+    else {
+        // remaining balance
+        const remainingBalanceCalculation = balance - savingAmountsCalculation;
+        const remainingBalanceDisplay = document.getElementById('remaining-balance');
+        remainingBalanceDisplay.innerText = remainingBalanceCalculation;
+
+        // error message
+        const notifyMessage = document.getElementById('notification');
+        return notifyMessage.innerText = '';
+    }
 })
