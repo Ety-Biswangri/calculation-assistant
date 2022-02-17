@@ -35,10 +35,11 @@ document.getElementById('calculate-button').addEventListener('click', function (
                 const balance = income - totalExpenses;
                 const balanceDisplay = document.getElementById('balance-display');
                 balanceDisplay.innerText = balance;
+
+                // error message
+                const notifyMessage = document.getElementById('notification');
+                notifyMessage.innerText = '';
             }
-            // error message
-            const notifyMessage = document.getElementById('notification');
-            notifyMessage.innerText = '';
         }
 
         else {
@@ -85,19 +86,21 @@ document.getElementById('save-button').addEventListener('click', function () {
     const balanceDisplay = document.getElementById('balance-display');
     balanceDisplay.innerText = balance;
 
-    if (savingAmountsCalculation > balance) {
-        // error message
-        const notifyMessage = document.getElementById('notification');
-        return notifyMessage.innerText = 'Opps! Not have enough Balance for savings';
-    }
-    else {
-        // remaining balance
-        const remainingBalanceCalculation = balance - savingAmountsCalculation;
-        const remainingBalanceDisplay = document.getElementById('remaining-balance');
+    // remaining balance
+    const remainingBalanceCalculation = balance - savingAmountsCalculation;
+    const remainingBalanceDisplay = document.getElementById('remaining-balance');
+    if (savingAmountsCalculation <= balance) {
         remainingBalanceDisplay.innerText = remainingBalanceCalculation;
 
         // error message
         const notifyMessage = document.getElementById('notification');
         return notifyMessage.innerText = '';
+    }
+    else {
+        remainingBalanceDisplay.innerText = '0';
+
+        // error message
+        const notifyMessage = document.getElementById('notification');
+        return notifyMessage.innerText = 'Opps! Not have enough Balance for savings';
     }
 })
