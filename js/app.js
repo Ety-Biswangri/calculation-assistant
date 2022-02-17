@@ -14,52 +14,43 @@ document.getElementById('calculate-button').addEventListener('click', function (
     const rentExpense = getInputValue('rent-expense');
     const clothesExpense = getInputValue('clothes-expense');
 
+    const totalExpenses = foodExpense + rentExpense + clothesExpense;
+    const totalExpensesDisplay = document.getElementById('total-expenses');
+    const balanceDisplay = document.getElementById('balance-display');
+    const notifyMessage = document.getElementById('notification');
+
     if (isNaN(income) != true && isNaN(foodExpense) != true && isNaN(rentExpense) != true && isNaN(clothesExpense) != true) {
 
         if (income >= 0 && foodExpense >= 0 && rentExpense >= 0 && clothesExpense >= 0) {
-            // total expense
-            const totalExpenses = foodExpense + rentExpense + clothesExpense;
-            if (totalExpenses > income) {
-                const totalExpensesDisplay = document.getElementById('total-expenses');
-                totalExpensesDisplay.innerText = totalExpenses;
-                const balanceDisplay = document.getElementById('balance-display');
-                balanceDisplay.innerText = '0';
-                // error message
-                const notifyMessage = document.getElementById('notification');
-                return notifyMessage.innerText = 'Opps! Not have enough income to expense';
-            }
-            else {
-                const totalExpensesDisplay = document.getElementById('total-expenses');
+
+            if (totalExpenses <= income) {
                 totalExpensesDisplay.innerText = totalExpenses;
                 // balance
                 const balance = income - totalExpenses;
-                const balanceDisplay = document.getElementById('balance-display');
                 balanceDisplay.innerText = balance;
-
                 // error message
-                const notifyMessage = document.getElementById('notification');
                 notifyMessage.innerText = '';
+            }
+            else {
+                totalExpensesDisplay.innerText = totalExpenses;
+                balanceDisplay.innerText = '0';
+                // error message
+                return notifyMessage.innerText = 'Opps! Not have enough income to expense';
             }
         }
 
         else {
-            const totalExpensesDisplay = document.getElementById('total-expenses');
             totalExpensesDisplay.innerText = '0';
-            const balanceDisplay = document.getElementById('balance-display');
             balanceDisplay.innerText = '0';
             // error message
-            const notifyMessage = document.getElementById('notification');
             notifyMessage.innerText = 'Opps! Give only positive numbers';
         }
     }
 
     else {
-        const totalExpensesDisplay = document.getElementById('total-expenses');
         totalExpensesDisplay.innerText = '0';
-        const balanceDisplay = document.getElementById('balance-display');
         balanceDisplay.innerText = '0';
         // error message
-        const notifyMessage = document.getElementById('notification');
         notifyMessage.innerText = 'Opps! Give numbers only';
     }
 });
@@ -89,6 +80,7 @@ document.getElementById('save-button').addEventListener('click', function () {
     // remaining balance
     const remainingBalanceCalculation = balance - savingAmountsCalculation;
     const remainingBalanceDisplay = document.getElementById('remaining-balance');
+
     if (savingAmountsCalculation <= balance) {
         remainingBalanceDisplay.innerText = remainingBalanceCalculation;
 
