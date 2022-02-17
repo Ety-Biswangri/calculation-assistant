@@ -1,3 +1,4 @@
+// geting intput values
 function getInputValue(inputId) {
     const inputField = document.getElementById(inputId);
     const inputAmount = parseInt(inputField.value);
@@ -5,6 +6,7 @@ function getInputValue(inputId) {
     return inputAmount;
 }
 
+// total expenses
 function getTotalExpenses() {
     const foodExpense = getInputValue('food-expense');
     const rentExpense = getInputValue('rent-expense');
@@ -92,4 +94,4 @@ document.getElementById('save-button').addEventListener('click', function () {
         // error message
         return notifyMessage.innerText = 'Opps! Not have enough Balance for savings';
     }
-})
+});
